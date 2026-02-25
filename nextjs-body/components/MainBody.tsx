@@ -54,6 +54,7 @@ export function MainBody() {
   return (
     <main style={s.wrap}>
       <div style={s.inner} id="features">
+        <p style={s.sectionBadge}>This section is <strong>Next.js</strong></p>
         <div style={s.head}>
           <p style={s.label}>The Stack</p>
           <h2 style={s.title}>Four frameworks, zero compromises.</h2>
@@ -101,6 +102,17 @@ const s: Record<string, React.CSSProperties> = {
   inner: {
     maxWidth: 'var(--max, 1100px)',
     margin: '0 auto',
+  },
+  sectionBadge: {
+    display: 'inline-block',
+    fontSize: '0.8rem',
+    fontWeight: 500,
+    color: '#e2e2f0',
+    background: 'rgba(226,226,240,0.08)',
+    border: '1px solid rgba(226,226,240,0.2)',
+    padding: '0.35rem 0.75rem',
+    borderRadius: 8,
+    marginBottom: '1.25rem',
   },
   head: {
     marginBottom: '4rem',

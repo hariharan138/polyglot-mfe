@@ -42,6 +42,17 @@ const s: Record<string, React.CSSProperties> = {
     maxWidth: 'var(--max, 1100px)',
     margin: '0 auto',
   },
+  sectionBadge: {
+    display: 'inline-block',
+    fontSize: '0.8rem',
+    fontWeight: 500,
+    color: 'var(--sky, #38bdf8)',
+    background: 'rgba(56,189,248,0.12)',
+    border: '1px solid rgba(56,189,248,0.35)',
+    padding: '0.35rem 0.75rem',
+    borderRadius: 8,
+    marginBottom: '1.25rem',
+  },
   head: { marginBottom: '3.5rem' },
   label: {
     margin: '0 0 1rem',
@@ -156,6 +167,7 @@ export function MiddleSection() {
   return (
     <section style={s.wrap} id="architecture">
       <div style={s.inner}>
+        <p style={s.sectionBadge}>This section is <strong>React</strong></p>
         <div style={s.head}>
           <p style={s.label}>Architecture</p>
           <h2 style={s.title}>How it works.</h2>
