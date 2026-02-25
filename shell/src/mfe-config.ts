@@ -24,11 +24,12 @@ const baseUrls = isDev
       vue: 'http://localhost:5175',
     }
   : {
-      // Same-origin paths — MFE bundles are copied into shell/public/mfe/ during build
-      angular: '/mfe/angular',
-      nextjs:  '/mfe/nextjs',
-      react:   '/mfe/react',
-      vue:     '/mfe/vue',
+      // Same-origin paths — MFE bundles are copied into shell/public/mfe/ during build.
+      // BASE_URL is '/' on Vercel or '/polyglot-mfe/' on GitHub Pages.
+      angular: `${import.meta.env.BASE_URL}mfe/angular`,
+      nextjs:  `${import.meta.env.BASE_URL}mfe/nextjs`,
+      react:   `${import.meta.env.BASE_URL}mfe/react`,
+      vue:     `${import.meta.env.BASE_URL}mfe/vue`,
     };
 
 export const mfeConfig: MfeEntry[] = [

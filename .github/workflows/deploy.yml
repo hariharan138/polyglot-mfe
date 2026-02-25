@@ -1,0 +1,77 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ── Build Angular MFE ──────────────────────────────────────────
+      - name: Install & build Angular
+        working-directory: angular-header
+        run: npm install && npm run build:wc
+
+      # ── Build Next.js WC bundle ────────────────────────────────────
+      - name: Install & build Next.js WC
+        working-directory: nextjs-body
+        run: npm install && npm run build:wc
+
+      # ── Build React MFE ───────────────────────────────────────────
+      - name: Install & build React
+        working-directory: react-middle
+        run: npm install && npm run build
+
+      # ── Build Vue MFE ─────────────────────────────────────────────
+      - name: Install & build Vue
+        working-directory: vue-footer
+        run: npm install && npm run build
+
+      # ── Copy MFE bundles into shell/public/mfe/ ───────────────────
+      - name: Copy MFE bundles to shell/public
+        run: |
+          mkdir -p shell/public/mfe/angular \
+                   shell/public/mfe/nextjs/wc \
+                   shell/public/mfe/react \
+                   shell/public/mfe/vue
+          cp -r angular-header/dist/wc/browser shell/public/mfe/angular/
+          cp    nextjs-body/public/wc/nextjs-body.js shell/public/mfe/nextjs/wc/
+          cp -r react-middle/dist/. shell/public/mfe/react/
+          cp -r vue-footer/dist/.   shell/public/mfe/vue/
+
+      # ── Build Shell ───────────────────────────────────────────────
+      - name: Install & build Shell
+        working-directory: shell
+        run: npm install && npm run build -- --base=/polyglot-mfe/
+
+      # ── Upload to GitHub Pages ────────────────────────────────────
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: shell/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
