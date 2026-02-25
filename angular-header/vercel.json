@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm run build:wc",
+  "outputDirectory": "dist/wc/browser",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

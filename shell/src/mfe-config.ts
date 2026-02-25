@@ -50,7 +50,7 @@ export const mfeConfig: MfeEntry[] = [
     scriptUrl: isDev
       ? `${baseUrls.react}/src/wc-entry.tsx`
       : `${baseUrls.react}/react-middle.js`,
-    styleUrl: isDev ? undefined : `${baseUrls.react}/react-middle.css`,
+    styleUrl: isDev ? undefined : `${baseUrls.react}/style.css`,
   },
   {
     name: 'vue-footer',
@@ -58,6 +58,6 @@ export const mfeConfig: MfeEntry[] = [
     scriptUrl: isDev
       ? `${baseUrls.vue}/src/wc-entry.ts`
       : `${baseUrls.vue}/vue-footer.js`,
-    styleUrl: isDev ? undefined : `${baseUrls.vue}/vue-footer.css`,
+    styleUrl: isDev ? undefined : `${baseUrls.vue}/style.css`,
   },
 ];
