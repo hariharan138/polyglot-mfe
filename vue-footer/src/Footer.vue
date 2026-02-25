@@ -2,7 +2,9 @@
   <footer class="f" id="about">
     <div class="f__top">
       <div class="f__inner">
-        <p class="f__section-badge">This section is <strong>Vue</strong></p>
+        <div class="f__badge-row">
+          <p class="f__section-badge">This section is <strong>Vue</strong></p>
+        </div>
         <div class="f__brand-col">
           <div class="f__brand">
             <span class="f__mark">◈</span>
@@ -76,10 +78,14 @@ const year = new Date().getFullYear();
   margin: 0 auto;
   padding: 0 2rem;
 }
-.f__section-badge {
-  display: block;
-  width: 100%;
+.f__badge-row {
   flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+.f__section-badge {
+  display: inline-block;
+  width: auto;
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--green, #4ade80);
@@ -87,8 +93,7 @@ const year = new Date().getFullYear();
   border: 1px solid rgba(74,222,128,0.3);
   padding: 0.35rem 0.75rem;
   border-radius: 8px;
-  margin: 0 0 1.25rem;
-  box-sizing: border-box;
+  margin: 0;
 }
 .f__section-badge strong { font-weight: 700; }
 
