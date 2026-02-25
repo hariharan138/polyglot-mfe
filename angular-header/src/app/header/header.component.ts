@@ -25,8 +25,8 @@ import { CommonModule } from '@angular/common';
       <section class="h__hero">
         <div class="h__grid-bg"></div>
         <div class="h__hero-inner">
-          <p class="h__section-badge">This section is <strong>Angular</strong></p>
           <p class="h__label">Micro Frontend Architecture Demo</p>
+          <p class="h__section-badge">This section is <strong>Angular</strong></p>
           <h1 class="h__title">
             One Page.<br>
             <span class="h__title-accent">Four Frameworks.</span>
@@ -133,8 +133,17 @@ import { CommonModule } from '@angular/common';
       max-width: var(--max);
       margin: 0 auto;
     }
+    .h__label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin: 0 0 1rem;
+    }
     .h__section-badge {
-      display: inline-block;
+      display: block;
       font-size: 0.8rem;
       font-weight: 500;
       color: #f87171;
@@ -142,18 +151,10 @@ import { CommonModule } from '@angular/common';
       border: 1px solid rgba(248,113,113,0.3);
       padding: 0.35rem 0.75rem;
       border-radius: 8px;
-      margin: 0 0 1.25rem;
+      margin: 0 0 1.5rem;
+      width: fit-content;
     }
     .h__section-badge strong { font-weight: 700; }
-    .h__label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--indigo);
-      margin: 0 0 1.5rem;
-    }
     .h__title {
       margin: 0 0 1.5rem;
       font-size: clamp(2.6rem, 6vw, 4.75rem);
