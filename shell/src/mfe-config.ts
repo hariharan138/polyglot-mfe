@@ -24,11 +24,11 @@ const baseUrls = isDev
       vue: 'http://localhost:5175',
     }
   : {
-      // ↓ Replace these with your actual Vercel deployment URLs
-      angular: import.meta.env.VITE_ANGULAR_URL ?? 'https://polyglot-angular.vercel.app',
-      nextjs:  import.meta.env.VITE_NEXTJS_URL  ?? 'https://polyglot-nextjs.vercel.app',
-      react:   import.meta.env.VITE_REACT_URL   ?? 'https://polyglot-react.vercel.app',
-      vue:     import.meta.env.VITE_VUE_URL     ?? 'https://polyglot-vue.vercel.app',
+      // Same-origin paths — MFE bundles are copied into shell/public/mfe/ during build
+      angular: '/mfe/angular',
+      nextjs:  '/mfe/nextjs',
+      react:   '/mfe/react',
+      vue:     '/mfe/vue',
     };
 
 export const mfeConfig: MfeEntry[] = [

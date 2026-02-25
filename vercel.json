@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm install && cd angular-header && npm install && npm run build:wc && cd ../nextjs-body && npm install && npm run build:wc && cd ../react-middle && npm install && npm run build && cd ../vue-footer && npm install && npm run build && cd ../shell && npm install && mkdir -p public/mfe/angular public/mfe/nextjs/wc public/mfe/react public/mfe/vue && cp -r ../angular-header/dist/wc/browser public/mfe/angular/ && cp ../nextjs-body/public/wc/nextjs-body.js public/mfe/nextjs/wc/ && cp -r ../react-middle/dist/. public/mfe/react/ && cp -r ../vue-footer/dist/. public/mfe/vue/ && npm run build",
+  "outputDirectory": "shell/dist",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}
