@@ -77,7 +77,9 @@ const year = new Date().getFullYear();
   padding: 0 2rem;
 }
 .f__section-badge {
-  display: inline-block;
+  display: block;
+  width: 100%;
+  flex: 0 0 100%;
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--green, #4ade80);
@@ -86,6 +88,7 @@ const year = new Date().getFullYear();
   padding: 0.35rem 0.75rem;
   border-radius: 8px;
   margin: 0 0 1.25rem;
+  box-sizing: border-box;
 }
 .f__section-badge strong { font-weight: 700; }
 
