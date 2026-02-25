@@ -14,6 +14,8 @@ export default defineConfig({
       output: {
         extend: true,
         entryFileNames: 'vue-footer.js',
+        assetFileNames: (assetInfo) =>
+          assetInfo.name?.endsWith('.css') ? 'style.css' : 'assets/[name]-[hash][extname]',
       },
     },
   },

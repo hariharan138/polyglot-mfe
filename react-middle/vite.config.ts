@@ -14,6 +14,8 @@ export default defineConfig({
       output: {
         extend: true,
         entryFileNames: 'react-middle.js',
+        assetFileNames: (assetInfo) =>
+          assetInfo.name?.endsWith('.css') ? 'style.css' : 'assets/[name]-[hash][extname]',
       },
     },
   },
