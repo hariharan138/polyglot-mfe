@@ -54,7 +54,6 @@
           <span class="f__sep">·</span>
           Built with Vue 3 + Vite
         </span>
-        <span class="f__port">:5175</span>
       </div>
     </div>
   </footer>
@@ -186,13 +185,4 @@ const year = new Date().getFullYear();
   border: 1px solid rgba(74,222,128,0.2);
 }
 .f__sep { color: var(--border-hi, rgba(255,255,255,0.13)); }
-.f__port {
-  font-size: 0.72rem;
-  font-weight: 600;
-  font-family: monospace;
-  color: var(--muted-2, rgba(226,226,240,0.25));
-  border: 1px solid var(--border, rgba(255,255,255,0.07));
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-}
 </style>

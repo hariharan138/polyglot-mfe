@@ -4,9 +4,8 @@ const frameworks = [
   {
     name: 'Angular',
     version: '18',
-    role: 'Header · <angular-header>',
-    desc: 'Compiled to a Web Component via Angular Elements. Zoneless change detection keeps it lean when hosted inside the Shell.',
-    port: '4200',
+    role: 'Header',
+    desc: 'This top section is built with Angular — compiled to a Web Component. You\'re seeing Angular here.',
     color: '#f87171',
     border: 'rgba(248,113,113,0.25)',
     bg: 'rgba(248,113,113,0.08)',
@@ -15,9 +14,8 @@ const frameworks = [
   {
     name: 'Next.js',
     version: '14',
-    role: 'Body · <nextjs-body>',
-    desc: 'App Router with React 18. Bundled via Rollup as an IIFE Web Component. This very section you\'re reading.',
-    port: '3000',
+    role: 'Body',
+    desc: 'This middle content is built with Next.js and React. You\'re reading the Next.js section right now.',
     color: '#e2e2f0',
     border: 'rgba(226,226,240,0.18)',
     bg: 'rgba(226,226,240,0.05)',
@@ -26,9 +24,8 @@ const frameworks = [
   {
     name: 'React',
     version: '18',
-    role: 'Middle · <react-middle>',
-    desc: 'Vite-powered React app loaded as an ES module from its own dev server. No build step needed in development.',
-    port: '5174',
+    role: 'Middle',
+    desc: 'The middle block above is built with React and Vite. Each framework powers its own part of the page.',
     color: '#38bdf8',
     border: 'rgba(56,189,248,0.25)',
     bg: 'rgba(56,189,248,0.08)',
@@ -37,9 +34,8 @@ const frameworks = [
   {
     name: 'Vue 3',
     version: '3',
-    role: 'Footer · <vue-footer>',
-    desc: 'defineCustomElement wraps a Vue SFC with scoped styles inlined. Vite serves it as a native ES module.',
-    port: '5175',
+    role: 'Footer',
+    desc: 'The footer at the bottom is built with Vue. Scroll down to see the Vue-powered section.',
     color: '#4ade80',
     border: 'rgba(74,222,128,0.25)',
     bg: 'rgba(74,222,128,0.08)',
@@ -51,7 +47,7 @@ const stats = [
   { n: '4', label: 'Frameworks' },
   { n: '1', label: 'Shell App' },
   { n: '0', label: 'iFrames' },
-  { n: '5', label: 'Dev Ports' },
+  { n: '4', label: 'Sections' },
 ];
 
 export function MainBody() {
@@ -78,11 +74,6 @@ export function MainBody() {
               </h3>
               <p style={s.cardRole}>{f.role}</p>
               <p style={s.cardDesc}>{f.desc}</p>
-              <div style={s.portRow}>
-                <span style={{ ...s.port, borderColor: f.border, color: f.color }}>
-                  :{f.port}
-                </span>
-              </div>
             </div>
           ))}
         </div>
@@ -195,16 +186,6 @@ const s: Record<string, React.CSSProperties> = {
     lineHeight: 1.65,
     color: 'var(--muted, rgba(226,226,240,0.5))',
     flex: 1,
-  },
-  portRow: { marginTop: 'auto', paddingTop: '0.75rem' },
-  port: {
-    display: 'inline-block',
-    fontSize: '0.72rem',
-    fontWeight: 600,
-    fontFamily: 'monospace',
-    padding: '0.2rem 0.6rem',
-    borderRadius: 999,
-    border: '1px solid',
   },
   statsWrap: {
     display: 'grid',
