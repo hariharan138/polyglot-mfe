@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+    'process.env': '{"NODE_ENV":"production"}',
+    'process': '{"env":{"NODE_ENV":"production"}}',
+  },
   build: {
     lib: {
       entry: 'src/wc-entry.tsx',
@@ -14,8 +19,10 @@ export default defineConfig({
       output: {
         extend: true,
         entryFileNames: 'react-middle.js',
-        assetFileNames: (assetInfo) =>
-          assetInfo.name?.endsWith('.css') ? 'style.css' : 'assets/[name]-[hash][extname]',
+        assetFileNames: (assetInfo) => {
+          const ext = (assetInfo.name ?? '').split('.').pop()?.toLowerCase();
+          return ext === 'css' ? 'style.css' : 'assets/[name]-[hash][extname]';
+        },
       },
     },
   },

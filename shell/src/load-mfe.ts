@@ -34,10 +34,15 @@ function loadScript(src: string, isModule: boolean): Promise<void> {
  * Load one MFE: optional style, then script(s).
  * Uses scriptUrls if present, otherwise scriptUrl.
  * Scripts from dev servers (e.g. /src/ or .tsx/.ts) are loaded as module.
+ * Style load failure is non-blocking so the script still loads (component can show without styles).
  */
 export async function loadMfe(entry: MfeEntry): Promise<void> {
   if (entry.styleUrl) {
-    await loadStyle(entry.styleUrl);
+    try {
+      await loadStyle(entry.styleUrl);
+    } catch (err) {
+      console.warn(`[Shell] Style failed for "${entry.name}" (component may still load):`, err);
+    }
   }
   const urls = entry.scriptUrls ?? [entry.scriptUrl];
   for (const url of urls) {
