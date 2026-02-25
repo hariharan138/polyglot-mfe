@@ -1,0 +1,9 @@
+/* React MFE section styles — vars resolved from shell :root */
+
+/* ── wrapper ───────────────────────────────────────────── */
+section[id="architecture"] {
+  padding: 6rem 2rem;
+  background: var(--surface, #0f0f1a);
+  border-top: 1px solid var(--border, rgba(255,255,255,0.07));
+  border-bottom: 1px solid var(--border, rgba(255,255,255,0.07));
+}

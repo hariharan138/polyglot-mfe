@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polyglot Micro Frontend — Shell</title>
+  <link rel="stylesheet" href="/src/shell.css" />
+</head>
+<body>
+  <div id="shell-root">
+    <div id="mfe-container">
+      <!-- Micro frontends are injected here by the loader -->
+      <angular-header></angular-header>
+      <nextjs-body></nextjs-body>
+      <react-middle></react-middle>
+      <vue-footer></vue-footer>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

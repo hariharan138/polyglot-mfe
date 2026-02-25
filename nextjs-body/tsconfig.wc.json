@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": false,
+    "outDir": "./public/wc",
+    "jsx": "react-jsx"
+  },
+  "include": ["wc/**/*", "components/**/*", "react-to-webcomponent.d.ts"]
+}

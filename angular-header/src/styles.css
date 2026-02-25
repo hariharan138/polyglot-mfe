@@ -1,0 +1,4 @@
+/* Global styles for the header component when used as WC */
+:host {
+  display: block;
+}
